@@ -6,7 +6,7 @@ p y /plot a springy sin wave
 z:y+-2+4*?n
 p(y;z) /plot a wave with random jiggles
 
-peaks:{1+&3{(1=*|>x)|1=*|<x}':x}
+peaks:{1+&3{|/1=(<x)0 2}':x}
 p`x`y`m!(x;y;(*x)+peaks y) /plot a wave with peak markers
 
 /plot a bar chart
