@@ -14,11 +14,8 @@ if t=="line":
  if 'z' in globals():t=ax.twinx();t.plot(x,z,color=c[1])
  if 'm' in globals():ax.vlines(m,ymin=min(y),ymax=max(y),color=c[2])
 if t=="bar":
- d=d["d"];c=list(d.keys());g=list(d.values())
+ d=d["d"];n=d[""];del d[""];c=list(d.keys());g=list(d.values())
  x=arange(len(d));width=1/(len(x)**2)
  for a in x:ax.bar(x+len(x)*a/2*width,g[a],width,label=c[a])
- ax.set_xticks(x)
- ax.set_xticklabels([str(a) for a in x])
- ax.legend()
-
+ ax.set_xticks(x+width*len(x)/2);ax.set_xticklabels(n);ax.legend()
 p.show()
