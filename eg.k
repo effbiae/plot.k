@@ -10,4 +10,4 @@ peaks:{1+&3{|/1=(<x)0 2}':x}
 p`x`y`m!(x;y;(*x)+peaks y) /plot a wave with peak markers
 
 /plot a bar chart
-p(`t`d!`bar,(`a`b`c!(10 12 14;5 8 2;10 3 15)))
+p@+`a`b`c!(10 12 14;5 8 2;10 3 15)
