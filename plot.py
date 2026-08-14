@@ -16,7 +16,7 @@ if t=="line":
   if 'm' in globals():ax.vlines(m,ymin=min(y),ymax=max(y),color=c[2])
 if t=="bar":
  t=d["x"]["+"];n=t[""];del t[""];k=list(t.keys());v=list(t.values())
- x=arange(len(t[k[0]]));width=1/(len(x)*2)
- for a in range(len(t)):ax.bar(x+len(x)*a/2*width,v[a],width,label=k[a])
- ax.set_xticks(x+width*len(x)/2);ax.set_xticklabels(n);ax.legend()
+ x=arange(len(t[k[0]]));width=1/len(x)/1.5;f=len(x)/len(t)*width
+ [ax.bar(x+a*f,v[a],width,label=k[a])for a in range(len(t))]
+ ax.set_xticks(x+f);ax.set_xticklabels(n);ax.legend()
 p.show()
