@@ -25,8 +25,9 @@ if 'rc'in d:
  for x in d['p']:
   rc=x['rc']
   def ag(a,x,y):
+   print('ag',x,y)
    if type(a)==ndarray and type(a[0])==ndarray:return a[x,y]
-   if type(a)==ndarray:return a[x]
+   if type(a)==ndarray:return a[y]
    return a
   b(x['x'],ag(ax,rc[0],rc[1]))
 else:
