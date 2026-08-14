@@ -1,22 +1,37 @@
-import matplotlib.pyplot as p;import json as j
+import matplotlib.pyplot as p;import json as j;from numpy import*
 with open("plot.data")as f:d=j.load(f)
-c=d.get("color",'blue red orange'.split());t=d["t"];fig,ax=p.subplots()
-if type(d["x"])==list:globals().update(dict(zip("xyz",d["x"])))
-else:
- if t in["line","scatter"]:globals().update(d["x"])
-if t=="line":
- if"+"in d["x"]:
-  t=d["x"]["+"];[ax.plot(range(len(t[k])),t[k],label=k)for k in t];p.legend()
+def b(d,ax):
+ g={}
+ c=d.get("color",'blue red orange'.split());t=d["t"];
+ if type(d["x"])==list:g.update(dict(zip("xyz",d["x"])))
  else:
-  ax.plot(x,y,color=c[0])
-  if'z'in globals():
-   t=ax.twinx();t.plot(x,z,color=c[1]);t.tick_params(axis='y',labelcolor='red')
-  if'm'in globals():ax.vlines(m,ymin=min(y),ymax=max(y),color=c[2],linewidth=1)
-if t=="bar":
- from numpy import*;t=d["x"]["+"];n=t[""];del t[""];k=list(t.keys());v=list(t.values())
- x=arange(len(t[k[0]]));width=1/len(x)/1.2;f=len(x)/len(t)*width
- [ax.bar(x+a*f,v[a],width,label=k[a])for a in range(len(t))]
- ax.set_xticks(x+f);ax.set_xticklabels(n);ax.legend()
+  if t in["line","scatter"]:g.update(d["x"])
+ if t=="line":
+  if"+"in d["x"]:
+   t=d["x"]["+"];[ax.plot(range(len(t[k])),t[k],label=k)for k in t];p.legend()
+  else:
+   ax.plot(g['x'],g['y'],color=c[0])
+   if'z'in g:
+    t=ax.twinx();t.plot(g['x'],g['z'],color=c[1]);t.tick_params(axis='y',labelcolor='red')
+   if'm'in g:ax.vlines(m,ymin=min(y),ymax=max(y),color=c[2],linewidth=1)
+ if t=="bar":
+  t=d["x"]["+"];n=t[""];del t[""];k=list(t.keys());v=list(t.values())
+  x=arange(len(t[k[0]]));width=1/len(x)/1.2;f=len(x)/len(t)*width
+  [ax.bar(x+a*f,v[a],width,label=k[a])for a in range(len(t))]
+  ax.set_xticks(x+f);ax.set_xticklabels(n);ax.legend()
+if 'rc'in d:
+ z=d['rc']
+ fig,ax=p.subplots(*z)
+ for x in d['p']:
+  rc=x['rc']
+  def ag(a,x,y):
+   if type(a)==ndarray and type(a[0])==ndarray:return a[x,y]
+   if type(a)==ndarray:return a[x]
+   return a
+  b(x['x'],ag(ax,rc[0],rc[1]))
+else:
+ fig,ax=p.subplots(1,1)
+ b(d,ax)
 def set(x,d):
  if x in dir(p)and x in d:getattr(p,x)(d[x])
 [set(x,d)for x in 'title xlabel'.split()]
