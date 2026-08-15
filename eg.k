@@ -3,13 +3,12 @@
 \d .
 pi:3.14159265
 y:`sin a:2*pi*n%2*x:(n%10)+!n:100
-
 p.p(!n;y) /line plot a springy sin wave
 
 z:y+?n
 p.p(!n;y;z) /plot two waves
 
-p.p@+`a`b`c!(10 12 14;5 8 2;10 3 15) /plot a multi line chart
+p.p@+`square`linear`log!(({x*x}@!n)%n;!n;0.25*n*`ln@1+!n) /plot a multi line chart
 
 p.p@+``a`b`c!(`p`q`r;10 12 14;5 8 2;10 3 15) /plot a bar chart
 
@@ -24,8 +23,8 @@ dft:{[x;r] /slow fourier transform
  dft:{{(+/;-+/)@'{x[z]*/:`cos`sin@\:2*pi*y*z%#x}[x;y]@!#x}[x]'!1+-2!#x}
  mag:{%+/x*x}@+:
  ((!#m)*r%#x)!m:mag dft x}
-s:{[f;n]`sin 2*pi*f*(!n)%n}
-n:200
-g:s[10;n]+0.5*s[32;n]+(?n)%9
-f:dft[g]n
-p.m[2 1;((!n;g);(!f;.f));(`suptitle!,"Fourer Transform"),(`xlabel!,"Hz")]
+s:{[f;n;r]`sin 2*pi*f*(!n)%r}
+n:200;r:500
+g:s[10;n;r]+0.5*s[32;n;r]+(?n)%9
+f:dft[g]r
+p.m[2 1;(((!n)%r;g);(!f;.f));(`suptitle!,"Fourier Transform"),(`xlabel!,"Hz")]
