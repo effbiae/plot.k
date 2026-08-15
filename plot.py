@@ -13,7 +13,7 @@ def b(d,ax):
    ax.plot(g['x'],g['y'],color=c[0])
    if'z'in g:
     t=ax.twinx();t.plot(g['x'],g['z'],color=c[1]);t.tick_params(axis='y',labelcolor='red')
-   if'm'in g:ax.vlines(m,ymin=min(y),ymax=max(y),color=c[2],linewidth=1)
+   if'm'in g:ax.vlines(g['m'],ymin=min(g['y']),ymax=max(g['y']),color=c[2],linewidth=1)
  if t=="bar":
   t=d["x"]["+"];n=t[""];del t[""];k=list(t.keys());v=list(t.values())
   x=arange(len(t[k[0]]));width=1/len(x)/1.2;f=len(x)/len(t)*width
@@ -32,6 +32,7 @@ else:
  fig,ax=p.subplots(1,1)
  b(d,ax)
 def set(x,d):
- if x in dir(p)and x in d:getattr(p,x)(d[x])
-[set(x,d)for x in 'title xlabel'.split()]
+ for y in [p,fig]:
+  if x in dir(y)and x in d:getattr(y,x)(d[x])
+[set(x,d)for x in 'suptitle title xlabel'.split()]
 p.show()
