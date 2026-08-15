@@ -1,14 +1,14 @@
 \d p
 \l plot.k
 \d .
-ss:"<html><body><pre>\n"
-a:{ss,:x,"\n"}
-d:"<>&"!`lt`gt`amp;img:{"<img src=",x,">"}
-p:{,/{$[d[x];"&",($d x),";";x]}'x}
-inum:0;png:{($inum+:1),".png"}
-fp:{p.po[x;ge]};fm:{p.mo[x;y;z;ge]}
-gen:{ge::png`;."f",(*2_x),3_x;ge}
-q:{{"\n "/"unlikely"\x}'"\n"\"unlikely"/"\n "\x}@1:"eg.k"
-{a p x;{$["p."~2#x;a img gen x;.x]}x}'q;
-a"</pre></body></html>";
-"index.html"1:ss
+gs:"<html><body><pre>\n";ga:{gs,:x,"\n"}
+ga"<a href=github.com/effbiae/plot.k>github</a>\n"
+gd:"<>&"!`lt`gt`amp;gimg:{"<img src=",x,">"}
+gp:{,/{$[gd[x];"&",($gd x),";";x]}'x}
+gnum:0;gpng:{($gnum+:1),".png"}
+gfp:{p.po[x;ge]};gfm:{p.mo[x;y;z;ge]}
+gen:{ge::gpng`;."gf",(*2_x),3_x;ge}
+gq:{{"\n "/"unlikely"\x}'"\n"\"unlikely"/"\n "\x}@1:"eg.k"
+{ga gp x;{$["p."~2#x;ga gimg gen x;.x]}x}'gq;
+ga"</pre></body></html>";
+"index.html"1:gs

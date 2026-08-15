@@ -25,5 +25,5 @@ f:dft[g]r
 p.m[2 1;((t;g);(!f;.f));(`suptitle!,"Fourier Transform"),(`xlabel!,"Hz")]
 /
 n:10
-p@+``a`b`c!(`$$'!n;!n;!n;!n) /plot a bar chart
-p@+(`,`$$!7)!(,`$$'!n),(7#,!n) /plot a bar chart
+p.p@+``a`b`c!(`$$'!n;!n;!n;!n) /plot a bar chart
+p.p@+(`,`$$!7)!(,`$$'!n),(7#,!n) /plot a bar chart
