@@ -22,17 +22,14 @@ def b(d,ax):
 if'rc'in d:
  z=d['rc'];fig,ax=p.subplots(*z)
  for x in d['p']:
-  rc=x['rc']
   def ag(a,x,y):
    if z[0]==1:return a[y]
    if z[1]==1:return a[x]
    return a[x,y]
-  b(x['x'],ag(ax,*rc))
-else:
- fig,ax=p.subplots(1,1)
- b(d,ax)
+  b(x['x'],ag(ax,*x['rc']))
+else:fig,ax=p.subplots();b(d,ax)
 def set(x,d):
- for y in [p,fig]:
+ for y in[p,fig]:
   if x in dir(y)and x in d:getattr(y,x)(d[x])
 [set(x,d)for x in 'suptitle title xlabel'.split()]
 p.show()
