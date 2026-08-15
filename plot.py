@@ -19,17 +19,15 @@ def b(d,ax):
   x=arange(len(t[k[0]]));width=1/len(x)/1.2;f=len(x)/len(t)*width
   [ax.bar(x+a*f,v[a],width,label=k[a])for a in range(len(t))]
   ax.set_xticks(x+f);ax.set_xticklabels(n);ax.legend()
-if 'rc'in d:
- z=d['rc']
- fig,ax=p.subplots(*z)
+if'rc'in d:
+ z=d['rc'];fig,ax=p.subplots(*z)
  for x in d['p']:
   rc=x['rc']
   def ag(a,x,y):
-   print('ag',x,y)
-   if type(a)==ndarray and type(a[0])==ndarray:return a[x,y]
-   if type(a)==ndarray:return a[y]
-   return a
-  b(x['x'],ag(ax,rc[0],rc[1]))
+   if z[0]==1:return a[y]
+   if z[1]==1:return a[x]
+   return a[x,y]
+  b(x['x'],ag(ax,*rc))
 else:
  fig,ax=p.subplots(1,1)
  b(d,ax)

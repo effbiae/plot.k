@@ -30,7 +30,5 @@ s:{[f;n]`sin 2*pi*f*(!n)%n}
 n:200
 g:s[30;n]+0.5*s[70;n]+(?n)%9
 f:dft[g]n
-p.r[2;1;(!2;!3)]
-/p.p g
-/p.r[2;1;(g;(`t`x!(`line;(!f;.f))))]
+p.r[2;1;(g;(`t`x!(`line;(!f;.f))))]
  /,(`title!,"Frequencies"),(`xlabel!,"Hz"))]
