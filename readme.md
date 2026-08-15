@@ -1,7 +1,7 @@
 ### plotting for ngn/k
 defines a concise interface to generate charts
 
-uses python's matplotlib, but can easily use other drivers keeping the same interface
+uses python's matplotlib, but can define other drivers keeping the same interface
 
 ![fourier transform plot](docs/6.png)
 
