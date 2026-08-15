@@ -11,4 +11,4 @@ git clone https://github.com/effbiae/plot.k.git
 cd plot.k
 k eg.k
 ```
-see eg.k's output [here](https://effbiae.github.io/plot.k/)
+see [eg.k](eg.k)'s output [here](https://effbiae.github.io/plot.k/)
