@@ -5,7 +5,7 @@ pi:3.14159265
 y:`sin 2*pi*n%2*x:(n%10)+!n:100
 p.p(x;y) /line plot a springy sin wave
 
-p.p(x;y;y*(?n)%10) /plot two waves
+p.p(x;y;-':y) /plot two waves
 
 p.p@+`square`linear`log!(({x*x}@!n)%n;!n;0.25*n*`ln@1+!n) /plot a multi line chart
 
