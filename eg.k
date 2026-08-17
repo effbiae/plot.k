@@ -7,7 +7,7 @@ p.p(x;y) /line plot a springy sin wave
 
 p.p(x;y;-':y) /plot two waves
 
-p.p@+`square`linear`log!(({x*x}@!n)%n;!n;0.25*n*`ln@1+!n) /plot a multi line chart
+p.p@+``square`linear`log!(!n;({x*x}@!n)%n;!n;0.25*n*`ln@1+!n) /plot a multi line chart
 
 p.p@+``a`b`c!(`p`q`r;10 12 14;5 8 2;10 3 15) /plot a bar chart
 

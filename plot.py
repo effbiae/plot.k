@@ -7,7 +7,7 @@ def b(d,ax):
   if t in["line","scatter"]:g.update(d["x"])
  if t=="line":
   if"+"in d["x"]:
-   t=d["x"]["+"];[ax.plot(range(len(t[k])),t[k],label=k)for k in t];p.legend()
+   t=d["x"]["+"];[ax.plot(t[''],t[k],label=k)for k in t if k!=''];p.legend()
   else:
    ax.plot(g['x'],g['y'],color=c[0])
    if'z'in g:
@@ -31,5 +31,5 @@ def set(x,d):
  for y in[p,fig]:
   if x in dir(y)and x in d:getattr(y,x)(d[x])
 [set(x,d)for x in 'suptitle title xlabel'.split()]
-if "out"in d:p.savefig(d['out'])
+if"out"in d:p.savefig(d['out'])
 else:p.show()

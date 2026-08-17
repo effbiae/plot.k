@@ -1,5 +1,6 @@
 t:`line`bar
-d:{$[`M=@x;`t`x!(t@~^(!x)?`;`"+"!,+x);`t`x!(*t;x)]}
+n:|/`I`F=@:
+d:{$[`M=@x;`t`x!(t@~n x`;`"+"!,+x);`t`x!(*t;x)]}
 r:{"plot.data"1:`j@x;."\\python3 plot.py"}
 p:{r d x}
 po:{r d[x],`out!,y}
